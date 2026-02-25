@@ -14,4 +14,19 @@ for (let i = 0; i < 100; i++) {
     cell.classList.add("cell", "closed")
     board.append(cell)
 }
+const maxBombs = 16
+
+
+const bombs = []
+
+while (bombs.length < maxBombs) {
+
+    const random = Math.floor(Math.random() * 100)// crea un numero da 0 a 99 
+    if (!bombs.includes(random)) { // controllo che non ci siano doppioni
+        bombs.push(random)
+    }
+}
+console.table(bombs)
+
+
 
