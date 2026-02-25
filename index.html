@@ -1,31 +1,36 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Prato Fiorito — Template Grafico</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
 
-  <body>
-    <main class="game" aria-label="Prato Fiorito (solo grafica)">
-      <header class="topbar" aria-label="Pannello di controllo">
-        <button id="new-game">New game</button>
-        <div class="counter">0</div>
-      </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prato Fiorito — Template Grafico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-      <section class="board-wrap" aria-label="Campo di gioco">
-        <div class="board"></div>
+<body>
+  <main class="game" aria-label="Prato Fiorito (solo grafica)">
+    <header class="topbar" aria-label="Pannello di controllo">
+      <button id="new-game">New game</button>
+      <div class="counter">0</div>
+    </header>
 
-        <div class="legend" aria-label="Legenda stati">
-          <div class="chip">
-            <span class="swatch closed"></span>Chiusa (closed)
-          </div>
-          <div class="chip"><span class="swatch open"></span>Aperta (open)</div>
-          <div class="chip"><span class="swatch mine"></span>Mina (mine)</div>
+    <section class="board-wrap" aria-label="Campo di gioco">
+      <div class="board">
+
+
+      </div>
+
+      <div class="legend" aria-label="Legenda stati">
+        <div class="chip">
+          <span class="swatch closed"></span>Chiusa (closed)
         </div>
-      </section>
-    </main>
-    <script src="script.js"></script>
-  </body>
+        <div class="chip"><span class="swatch open"></span>Aperta (open)</div>
+        <div class="chip"><span class="swatch mine"></span>Mina (mine)</div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+
 </html>
