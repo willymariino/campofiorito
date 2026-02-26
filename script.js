@@ -1,23 +1,12 @@
 const board = document.querySelector(".board")
+const counter = document.querySelector(".counter")
+const over = document.querySelector(".game-over")
 
-for (let i = 0; i < 100; i++) {
-    const cell = document.createElement("div")
-    cell.innerText = i + 1
-    cell.addEventListener("click", function (e) {
-        // cell.classList.remove("closed")
-        // cell.classList.add("open")
-        e.target.classList.remove("closed")
-        e.target.classList.add("open")
-    })
-
-
-    cell.classList.add("cell", "closed")
-    board.append(cell)
-}
 const maxBombs = 16
-
-
 const bombs = []
+let score = 0
+let gameOver = false
+
 
 while (bombs.length < maxBombs) {
 
@@ -30,3 +19,41 @@ console.table(bombs)
 
 
 
+for (let i = 0; i < 100; i++) {
+    const cell = document.createElement("div")
+    cell.innerText = i + 1
+    cell.addEventListener("click", function (e) {
+        if (!gameOver) {
+            // cell.classList.remove("closed")
+            // cell.classList.add("open")
+            e.target.classList.remove("closed")
+            console.log(i)
+            if (bombs.includes(i)) { // se è vera questa condizione, vuol dire che ho cliccato su una bomba
+                e.target.classList.add("mine")
+                e.target.innerText = ""
+                gameOver = true
+                over.innerText = "gioco finito"
+
+            }
+            else {
+                e.target.classList.add("open")
+                score++
+                counter.innerText = score
+            }
+        }
+
+    })
+
+
+    cell.classList.add("cell", "closed")
+    board.append(cell)
+}
+
+/*
+gestione pulsante new game
+azzerare il punteggio
+azzerare le bombe 
+e rigenerarle
+
+
+*/
