@@ -1,6 +1,7 @@
 const board = document.querySelector(".board")
 const counter = document.querySelector(".counter")
 const over = document.querySelector(".game-over")
+const newGame = document.getElementById("new-game")
 
 const maxBombs = 16
 const bombs = []
@@ -8,6 +9,8 @@ let score = 0
 let gameOver = false
 
 function createBombs() {
+
+    bombs.splice(0, bombs.length)
 
     while (bombs.length < maxBombs) {
 
@@ -20,14 +23,18 @@ function createBombs() {
 }
 
 
-function createCell() {
+function createCells() {
+
+    board.innerText = ""
+
 
     for (let i = 0; i < 100; i++) {
         const cell = document.createElement("div")
         cell.innerText = i + 1
 
+
         cell.addEventListener("click", function (e) {
-            if (!gameOver) {
+            if (gameOver === false) { // if (!gameOver){ 
                 // cell.classList.remove("closed")
                 // cell.classList.add("open")
                 e.target.classList.remove("closed")
@@ -56,18 +63,27 @@ function createCell() {
 
 createBombs()
 
-createCell()
+createCells()
 
-function newGame() {
+function restartGame() {
     if (gameOver === true) {
         gameOver = false
+        score = 0
+        counter.innerText = score
         createBombs()
+        createCells()
     }
 }
+
+newGame.addEventListener("click", function (e) {
+    restartGame()
+}
+)
+
 /*
-gestione pulsante new game
-azzerare il punteggio
-azzerare le bombe 
+gestione pulsante new game ✅
+azzerare il punteggio ✅
+azzerare le bombe ✅
 e rigenerarle
 
 
