@@ -61,11 +61,8 @@ function createCells() {
     }
 }
 
-createBombs()
 
-createCells()
-
-function restartGame() {
+function restartGame() { // funziona che azzera e rigenera la board
     if (gameOver === true) {
         gameOver = false
         score = 0
@@ -75,10 +72,13 @@ function restartGame() {
     }
 }
 
-newGame.addEventListener("click", function (e) {
+newGame.addEventListener("click", function (e) { // evento che invoca la funzione al click
     restartGame()
-}
-)
+})
+
+createBombs()
+
+createCells()
 
 /*
 gestione pulsante new game ✅
