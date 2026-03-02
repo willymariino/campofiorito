@@ -8,6 +8,7 @@ let score = 0
 let gameOver = false
 
 function createBombs() {
+
     while (bombs.length < maxBombs) {
 
         const random = Math.floor(Math.random() * 100)// crea un numero da 0 a 99 
@@ -24,6 +25,7 @@ function createCell() {
     for (let i = 0; i < 100; i++) {
         const cell = document.createElement("div")
         cell.innerText = i + 1
+
         cell.addEventListener("click", function (e) {
             if (!gameOver) {
                 // cell.classList.remove("closed")
@@ -56,7 +58,12 @@ createBombs()
 
 createCell()
 
-
+function newGame() {
+    if (gameOver === true) {
+        gameOver = false
+        createBombs()
+    }
+}
 /*
 gestione pulsante new game
 azzerare il punteggio
